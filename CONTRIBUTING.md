@@ -63,9 +63,9 @@
 ## 开发规范
 
 ### 预编译
-    - html -> Pug
-    - css -> Less (建议使用BEM命名规范)
-    - js -> ES6
+- html -> Pug
+- css -> Less (建议使用BEM命名规范)
+- js -> ES6
 
 ### class Page
 ```javascript
