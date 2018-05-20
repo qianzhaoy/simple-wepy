@@ -31,24 +31,11 @@
         ├─api // 接口地址
         │
         ├─components // wepy 静态组件
-        │  ├─is-empty
-        │  │
-        │  ├─item-card
-        │  │
         │  ├─tabbar
-        │  │
-        │  ├─zan-button
-        │  │
-        │  ├─zan-icon
-        │  │
-        │  ├─zan-notice
-        │  │
-        │  ├─zan-tag
         │
         ├─images // 图片
         │
         ├─mixins // page 的 mixins
-        │      load-more.js
         |      validation.js
         │
         ├─pages // 所有页面
@@ -60,15 +47,7 @@
         |  |
         │  ├─components // 静态组件样式
         |  |
-        │  ├─home // 以下为页面样式
-        |  |
-        │  ├─index
-        |  |
-        │  ├─item
-        |  |
-        │  └─user
-        |  |
-        │  └─login
+        │  ├─home // 页面样式
         │
         └─util // 工具类
             │  created.js // 页面全局功能，需在页面引入并调用，参考现有页面 ( 注意，component无法使用全局方法，建议用event或者$parent )
