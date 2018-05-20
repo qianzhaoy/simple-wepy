@@ -1,0 +1,42 @@
+<template lang="pug">
+    view
+        wxc-loadmore(
+            icon="{{ true }}"
+        )
+    tabbar
+</template> 
+
+<script>
+import wepy from 'wepy'
+
+import Tabbar from '../../components/tabbar/index'
+
+import created from '../../util/created'
+
+class TabHome extends wepy.page {
+    config = {
+        usingComponents: {
+            'wxc-loadmore': '../../packages/@minui/wxc-loadmore/dist/index'
+        }
+    }
+
+    data = {}
+
+    onLoad() {}
+
+    onInfoBack(res) {
+        console.log(res)
+    }
+
+    methods = {}
+
+    components = {
+        'tabbar': Tabbar
+    }
+}
+
+const HOC = created(TabHome)
+export default HOC
+</script>
+
+<style lang="less" src="../../style/home/tab-home.less"></style>

@@ -1,0 +1,65 @@
+var yuan = function (value, symbol = '¥') {
+    var format = getRegExp('\B(?=(\d{3})+(?!\d))', 'g')
+    return !isNaN(parseInt(value)) ? symbol + (value / 100).toFixed(2).replace(format, ',') : value
+}
+
+var zoomImg = function (value, width, height, type){
+    width = typeof width === 'number' ? 'w_' + width : ''
+    height = typeof height === 'number' ? 'h_' + height : ''
+    type = type || ''
+    var result = [
+        '?x-oss-process=image/resize',
+        width,
+        height,
+        type
+    ].filter(function(item) {
+        return item != ''
+    })
+    return (value || '../../images/goods_default.png') + result.join(',')
+}
+
+var formatDate = function(num, cc){
+	//num  是秒时间戳
+	//cc  'day','min','day_min','day_min_s'
+	cc = cc || 'day'
+	var date = getDate(num * 1000);
+	//日期格式化
+	var week = ['日', '一', '二', '三', '四', '五', '六'];
+	var y = date.getFullYear() + '-';
+	var m = date.getMonth() + 1 + '-';
+	var d = date.getDate() + '';
+	var w = '  星期' + week[date.getDay()];
+	var h = date.getHours();
+	// var am=h>=12?'  下午':'  上午';
+	//h=h>12  ?  h-12  :  h;
+	d = d < 10 ? '0' + d : '' + d;
+	h = h < 10 ? '0' + h : '' + h;
+	var mi = date.getMinutes();
+	mi = mi < 10 ? '0' + mi : '' + mi;
+	var s = date.getSeconds();
+	s = s < 10 ? '0' + s : '' + s;
+	var str = '';
+	if (cc == 'day') {
+		str = y + m + d;
+	} else if (cc == 'min') {
+		str = h + ' : ' + mi;
+	} else if (cc == 'day_min') {
+		str = y + m + d + ' ' + h + ':' + mi;
+	} else if (cc == 'day_min_s') {
+		str = y + m + d + ' ' + h + ':' + mi + ':' + s;
+	}
+	return str;
+}
+
+var idcardStar = function(value) {
+	return value.replace(getRegExp('^(\d{4})(\d*)(\d{4})$'), function(a, b, c, d) {
+		return b + c.replace(getRegExp('\d', 'g'), '*') + d
+	})
+}
+
+module.exports = {
+    yuan: yuan,
+    zoomImg: zoomImg,
+    formatDate: formatDate,
+    idcardStar: idcardStar
+}

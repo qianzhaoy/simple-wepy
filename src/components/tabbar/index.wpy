@@ -1,0 +1,77 @@
+<template>
+    <view class="mm-tabbar">
+        <view 
+            wx:for="{{list}}"
+            wx:key="index"
+            class="mm-tabbar__item {{ (index == active) && 'mm-tabbar__item--actived'}}" 
+            hover-class="mm-tabbar__item--hover"
+            @tap="routeTo({{index}})"
+        >
+            <view class="mm-icon {{'mm-icon-' + item.icon}} font-18"></view>
+            <view>{{ item.name }}</view>
+        </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Tabbar extends wepy.component {
+    props = {
+        active: {
+            type: Number,
+            default: 0
+        }
+    }
+
+    data = {
+        list: [
+            {
+                name: '精选',
+                path: '/pages/home/tab-home',
+                icon: 'compass-full'
+            },
+            {
+                name: '分类',
+                path: '/pages/item/tab-class',
+                icon: 'class-full'
+            },
+            {
+                name: '购物车',
+                path: '/pages/cart/tab-cart',
+                icon: 'cart-full'
+            },
+            {
+                name: '我的',
+                path: '/pages/user/tab-user',
+                icon: 'wode'
+            }
+        ]
+    }
+
+    methods = {
+        routeTo(i) {
+            const target = this.list[i]
+            if (i === this.active) {
+                this.$emit('tapSelf', target)
+                return
+            }
+
+            const { path: url } = target
+            const pageStack = this.getCurrentPages()
+            const findIndex = pageStack.findIndex(el => el.route === url.substr(1))
+            if (findIndex > -1) {
+                wx.navigateBack({
+                    delta: pageStack.length - 1 - findIndex
+                })
+            } else {
+                const selfPage = pageStack[pageStack.length - 1]
+                const { shopCode } = selfPage.options || ''
+                wx.navigateTo({
+                    url: `${url}?shopCode=${shopCode}`
+                })
+            }
+        }
+    }
+}
+</script>

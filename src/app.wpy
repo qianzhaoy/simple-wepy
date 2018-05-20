@@ -1,0 +1,49 @@
+<style lang="less" src="./style/app.less"></style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+import 'promise-polyfill'
+
+export default class extends wepy.app {
+    config = {
+        pages: [
+            'pages/home/tab-home'
+        ],
+        window: {
+            'backgroundTextStyle': 'light',
+            'navigationBarBackgroundColor': '#db3d3c',
+            'navigationBarTitleText': 'hellow word',
+            'navigationBarTextStyle': 'white'
+        }
+    }
+
+    globalData = {
+        userInfo: null
+    }
+
+    constructor() {
+        super()
+        this.use('requestfix')
+        this.use('promisify')
+    }
+
+    onLaunch() {
+        wepy.login()
+    }
+
+    getUserInfo(cb) {
+        const that = this
+        if (this.globalData.userInfo) {
+            return cb && cb(this.globalData.userInfo)
+        }
+        wepy.getUserInfo({
+            success(res) {
+                console.log(res)
+                that.globalData.userInfo = res.userInfo
+                cb && cb(res.userInfo)
+            }
+        })
+    }
+}
+</script>
