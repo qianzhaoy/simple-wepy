@@ -1,6 +1,9 @@
 <template lang="pug">
-    view
+    view.home
+        view.home__hello hello word
+
         wxc-loadmore(
+            is-end="{{ true }}"
             icon="{{ true }}"
         )
     tabbar
