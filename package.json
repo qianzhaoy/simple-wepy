@@ -1,7 +1,7 @@
 {
   "name": "madian-wepy",
   "version": "0.0.1",
-  "description": "项目名（初始化后修改）",
+  "description": "a wepy project",
   "main": "dist/app.js",
   "scripts": {
     "dev": "wepy build --watch",
@@ -14,7 +14,7 @@
     "module-a": false,
     "./src/components/list": "./src/components/wepy-list.wpy"
   },
-  "author": "作者（初始化后修改）",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "@minui/wxc-abnor": "^1.0.7",
