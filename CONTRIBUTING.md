@@ -59,6 +59,12 @@
             └─wxs
                     filter.wxs // 过滤器
 
+## created.js
+
+在这个js内，封装全局的使用方法，比mixins更加灵活，但更麻烦。
+- 内部增加了一个`onBack`生命周期，可以用在`navigateBack`时来传递数据。但是同样必须要用js内部封装的navigateBack方法来回退页面。为了API使用一致性，同样增加了`navigateTo`、`redirectTo`方法。
+- 为了方便使用RESTful使用场景和方便接口请求。增加了四个全局方法。`reqGet`、`reqPost`、`reqPut`、`reqDel`
+- 还有自定义转发`onShareAppMessage`
 
 ## 开发规范
 
