@@ -39,7 +39,6 @@
     "@minui/wxc-steps": "^1.0.7",
     "@minui/wxc-tab": "^1.0.8",
     "@minui/wxc-toast": "^1.0.8",
-    "@qianzhaoy/mm-price": "^1.0.8",
     "lodash.get": "^4.4.2",
     "promise-polyfill": "^7.1.2",
     "qs": "^6.5.2",
