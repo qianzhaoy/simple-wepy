@@ -2,11 +2,11 @@
 
 ## 开发前准备
 
-<p style="color: red">开发前请先认真阅读<a href="./CONTRIBUTING.md">开发指南</a></p>
+开发前请先熟悉[wepy文档](https://tencent.github.io/wepy/document.html#/)
+
+再认真阅读<a href="./CONTRIBUTING.md">开发指南</a>
 
 ### 模板下载
-
-[wepy文档](https://tencent.github.io/wepy/document.html#/)
 
 ``` bash
 # 先全局安装 wepy
