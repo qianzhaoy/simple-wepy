@@ -26,7 +26,7 @@ git clone https://github.com/qianzhaoy/simple-wepy.git
 # 项目使用minui做组件库，故需先全局安装min-cli
 npm install -g @mindev/min-cli
 
-# 进入项目文件夹安装模块依赖
+# 进入项目文件夹安装模块依赖，强制用 npm，而非 cnpm，不然 min build 后会有冗余的依赖包产生
 npm install
 
 # 编译 min-ui 组件
