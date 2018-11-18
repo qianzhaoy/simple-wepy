@@ -1,5 +1,7 @@
 # 小程序 -- 基于 wepy 框架
 
+> 不更新了, 我的wepy版本也很老~~ 不建议用
+
 ## 开发前准备
 
 开发前请先熟悉[wepy文档](https://tencent.github.io/wepy/document.html#/)
